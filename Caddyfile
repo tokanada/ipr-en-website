@@ -1,15 +1,21 @@
+{
+	admin off
+}
+
 :80 {
 	root * /srv
 	encode zstd gzip
 
 	header {
+		Strict-Transport-Security "max-age=31536000"
 		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
 		Referrer-Policy "strict-origin-when-cross-origin"
-		Content-Security-Policy "default-src 'self'; connect-src https://api.github.com; img-src 'self' data:; style-src 'self'; script-src 'self'"
+		Content-Security-Policy "default-src 'self'; base-uri 'self'; form-action 'self'; frame-ancestors 'none'; connect-src https://api.github.com; img-src 'self' data:; style-src 'self'; script-src 'self'"
 	}
 
 	@static path *.css *.js *.svg
-	header @static Cache-Control "public, max-age=86400"
+	header @static Cache-Control "public, max-age=3600"
 
 	@html {
 		not path *.css *.js *.svg

@@ -1,20 +1,42 @@
 services:
   ipr-en-website:
     build: .
-    image: ipr-en-website
+    image: ipr-en-website:latest
     container_name: ipr-en-website
     restart: unless-stopped
-    expose:
-      - "80"
-    # For local testing without a reverse proxy, uncomment:
-    # ports:
-    #   - "8080:80"
-    networks:
-      - proxy
 
-networks:
-  proxy:
-    # Shared network with your outer Caddy. Change the name to match yours,
-    # or create it once with: docker network create proxy
-    external: true
-    name: proxy
+    # Loopback only. The reverse proxy runs in the host network namespace and is
+    # the sole client. Override IPR_PORT if 3007 is already taken.
+    ports:
+      - "127.0.0.1:${IPR_PORT:-3007}:80"
+
+    # The site is fully static and the in-container admin API is disabled, so the
+    # container needs no writable layer, capabilities, or persistent volumes.
+    read_only: true
+    user: "1001:1001"
+    tmpfs:
+      - /tmp:size=16m,mode=1777
+      - /config:size=16m,mode=1777
+      - /data:size=16m,mode=1777
+    cap_drop: [ALL]
+    # The upstream Caddy binary carries a file capability; dropping the entire
+    # bounding set makes execve fail with EPERM, so keep just this one.
+    cap_add:
+      - NET_BIND_SERVICE
+    security_opt:
+      - no-new-privileges:true
+    mem_limit: 64m
+    pids_limit: 64
+
+    healthcheck:
+      test: ["CMD-SHELL", "wget -qO- http://127.0.0.1/ >/dev/null || exit 1"]
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 5s
+
+    logging:
+      driver: json-file
+      options:
+        max-size: "5m"
+        max-file: "2"

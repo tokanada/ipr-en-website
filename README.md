@@ -14,36 +14,37 @@ The only network call is to the GitHub API (latest release).
 
 ```sh
 docker build -t ipr-en-website .
-docker run -d --name ipr-en-website -p 8080:80 ipr-en-website
-curl -I http://localhost:8080
+docker run -d --name ipr-en-website -p 127.0.0.1:3007:80 ipr-en-website
+curl -I http://127.0.0.1:3007
 # stop: docker rm -f ipr-en-website
 ```
 
-## Deploy behind your existing Caddy
+## Deploy behind a reverse proxy
 
-With compose (the service joins an external network called `proxy`):
+The published port is bound to loopback only, so it is not reachable from the
+network. Point the reverse proxy on the same host at it:
 
 ```sh
-docker network create proxy   # once, if it doesn't exist
 docker compose up -d --build
 ```
 
-Your outer Caddy must be on the same `proxy` network. Then in its Caddyfile:
-
-```
-example.com {
-	reverse_proxy ipr-en-website:80
+```caddyfile
+ipr.example.com {
+	reverse_proxy 127.0.0.1:3007
 }
 ```
 
-If your outer Caddy is not in a container, uncomment the `ports` lines in
-`docker-compose.yml` (`127.0.0.1:8080:80` is a good choice) and use:
+Set `IPR_PORT` to publish a different loopback port. TLS is terminated by the
+outer proxy, which also obtains the certificate (DNS-01 in the reference setup).
 
+### Updating
+
+```sh
+git pull --ff-only
+docker compose up -d --build
 ```
-example.com {
-	reverse_proxy localhost:8080
-}
-```
+
+The container has no persistent state. The image can be rebuilt at any time.
 
 ## Notes
 
@@ -53,3 +54,4 @@ example.com {
 - Without JavaScript, or if GitHub's API is rate-limited (60 requests/hour per
   visitor IP), every button falls back to the GitHub releases page.
 - The Content-Security-Policy forbids inline scripts and styles. Keep it that way.
+  Do not enable Cloudflare Rocket Loader for this hostname; it injects inline JS.
