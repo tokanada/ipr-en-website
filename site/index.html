@@ -1,0 +1,220 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>IDOLY PRIDE English Patch</title>
+<meta name="description" content="Play IDOLY PRIDE in English on Android. Download the latest English patch, see which version you need, and follow the simple install steps.">
+<meta name="color-scheme" content="light dark">
+<meta property="og:type" content="website">
+<meta property="og:title" content="IDOLY PRIDE English Patch">
+<meta property="og:description" content="Play IDOLY PRIDE in English on Android. Pick your version, download, and install in a few steps.">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script src="app.js" defer></script>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>IDOLY PRIDE <span class="nowrap">English Patch</span></h1>
+    <p class="lead">Play the Japanese game with an English translation, on your Android phone.</p>
+    <p><span class="badge" id="version-badge">Latest version: see downloads</span></p>
+    <p><a class="btn btn-big" href="#downloads">Download</a></p>
+  </div>
+</header>
+
+<main class="wrap">
+
+  <section id="disclaimer" aria-labelledby="h-risk">
+    <div class="box warn">
+      <h2 id="h-risk">Use at your own risk</h2>
+      <p>Using a modified game client violates the game's Terms of Service and could result in your account being banned. No bans have been reported so far, but we cannot guarantee your account's safety. Use at your own discretion.</p>
+    </div>
+  </section>
+
+  <section id="dev-status" aria-labelledby="h-dev">
+    <div class="box notice">
+      <h2 id="h-dev">This project is in active development</h2>
+      <p>Expect some weirdness and bugs: untranslated text, odd line breaks, or things that look off.</p>
+      <p>New releases come out almost every day, so check back often for the latest version.</p>
+      <p>Your help makes a big difference. If you spot a bug or a bad translation, use the buttons at the bottom of the screen to <a href="https://forms.gle/TZDMAieKvuFLf5ru7" target="_blank" rel="noopener">report it</a> or <a href="https://hoshimistation.tokanada.com" target="_blank" rel="noopener">suggest a fix</a>. Every report and contribution helps a lot.</p>
+    </div>
+  </section>
+
+  <section id="devices" aria-labelledby="h-devices">
+    <h2 id="h-devices">Will it work on my phone?</h2>
+    <ul class="checks">
+      <li>Android 10 or newer.</li>
+      <li>A 64-bit ARM phone (arm64-v8a / ARMv8). Almost every phone from the last several years is.</li>
+      <li>About 40 MB free for the translation data, plus room for the game (about 200 MB for the app plus game data).</li>
+      <li>An internet connection.</li>
+    </ul>
+    <p><strong>Not supported:</strong> iPhone, iPad, and 32-bit Android devices.</p>
+    <div class="box notice">
+      <p><strong>Emulators (BlueStacks, MuMu, LDPlayer, etc.) are not supported at the moment.</strong> Support is being worked on.</p>
+    </div>
+    <p class="tip">Not sure about your phone? Install a free app like "Droid Hardware Info" or "CPU-Z". It should show arm64-v8a or AArch64.</p>
+  </section>
+
+  <section id="good-to-know" aria-labelledby="h-know">
+    <h2 id="h-know">Good to know</h2>
+    <ul>
+      <li>In-app purchases don't work in the patched game. Purchases you already made are kept.</li>
+      <li>Google and Apple linking don't work. Use Twitter (X) or a password link.</li>
+      <li>Don't install the Korean HoshimiLocalify module or other patched builds alongside this one.</li>
+      <li>Switching between Lite and Full, or Standard and Side-by-side, may need an uninstall. Link your account first.</li>
+      <li>The Side-by-side app has its own separate login and data.</li>
+    </ul>
+  </section>
+
+  <section id="downloads" aria-labelledby="h-downloads">
+    <h2 id="h-downloads">Downloads</h2>
+    <p class="meta" id="release-meta">Each file is about 200 MB, so use Wi-Fi if you can.</p>
+
+    <div class="box help">
+      <h3>Which one do I need?</h3>
+      <p>Not sure? Get <strong>Lite &mdash; Standard</strong>. It is the simple one that just works.</p>
+      <ul>
+        <li><strong>Lite</strong> is the English translation only.</li>
+        <li><strong>Full</strong> adds some modified character physics tweaks.</li>
+        <li><strong>Standard</strong> replaces the Japanese app on your phone.</li>
+        <li><strong>Side-by-side</strong> installs as a separate app, so you can keep the Japanese one too.</li>
+      </ul>
+    </div>
+
+    <article class="card card-main" data-kind="lite" data-suffix="_lite_embedded.apk">
+      <p class="tag">Recommended</p>
+      <h3>Lite &mdash; Standard</h3>
+      <p>English translation only. Replaces the Japanese app.</p>
+      <p class="fileinfo" data-role="info"></p>
+      <a class="btn btn-big" data-role="btn" href="https://github.com/tokanada/ipr-patcher-en/releases/latest" rel="noopener">Download Lite &mdash; Standard</a>
+      <p class="note" data-role="note" hidden></p>
+    </article>
+
+    <article class="card" data-kind="full" data-suffix="_full_embedded.apk">
+      <h3>Full &mdash; Standard</h3>
+      <p>Same as Lite, plus modified character physics tweaks (on by default).</p>
+      <p class="fileinfo" data-role="info"></p>
+      <a class="btn" data-role="btn" href="https://github.com/tokanada/ipr-patcher-en/releases/latest" rel="noopener">Download Full &mdash; Standard</a>
+      <p class="note" data-role="note" hidden></p>
+    </article>
+
+    <h3 class="sub">Want to keep the original Japanese app too?</h3>
+    <p>These install as a separate app named "IDOLY PRIDE", right next to the Play Store version.</p>
+
+    <article class="card" data-kind="lite_cloned" data-suffix="_lite_embedded_cloned.apk">
+      <h3>Lite &mdash; Side-by-side</h3>
+      <p>English translation only, installed as its own app.</p>
+      <p class="fileinfo" data-role="info"></p>
+      <a class="btn" data-role="btn" href="https://github.com/tokanada/ipr-patcher-en/releases/latest" rel="noopener">Download Lite &mdash; Side-by-side</a>
+      <p class="note" data-role="note" hidden></p>
+    </article>
+
+    <article class="card" data-kind="full_cloned" data-suffix="_full_embedded_cloned.apk">
+      <h3>Full &mdash; Side-by-side</h3>
+      <p>Full (physics tweaks) plus side-by-side.</p>
+      <p class="fileinfo" data-role="info"></p>
+      <a class="btn" data-role="btn" href="https://github.com/tokanada/ipr-patcher-en/releases/latest" rel="noopener">Download Full &mdash; Side-by-side</a>
+      <p class="note" data-role="note" hidden></p>
+    </article>
+  </section>
+
+  <section id="install" aria-labelledby="h-install">
+    <h2 id="h-install">How to install</h2>
+    <ol class="steps">
+      <li>
+        <h3>Link your game account first</h3>
+        <div class="box warn">
+          <p>Before you uninstall anything, open the account linking or data transfer menu in the Japanese game. Link your account with <strong>Twitter (X)</strong> or a <strong>transfer password</strong>. Guest accounts that aren't linked <strong>lose all progress</strong>.</p>
+          <p>You can skip this for Side-by-side builds, or if you've never played.</p>
+        </div>
+        <div class="box warn">
+          <p><strong>Google account and Apple account linking do NOT work</strong> in the patched game. (Apple linking isn't available on Android anyway.) Use <strong>Twitter (X)</strong> or a <strong>password link</strong> instead. If your account is linked only to Google, add a Twitter or password link <em>before</em> you switch.</p>
+        </div>
+      </li>
+      <li>
+        <h3>Uninstall the Play Store version</h3>
+        <p>Standard builds only. The patched app is signed differently, so it can't install over the original. Skip this step for Side-by-side.</p>
+      </li>
+      <li>
+        <h3>Download your APK</h3>
+        <p>Pick one from the <a href="#downloads">downloads</a>. Wi-Fi is best, the file is about 200 MB.</p>
+      </li>
+      <li>
+        <h3>Open the downloaded file</h3>
+        <p>If Android asks, allow "Install unknown apps" for your browser or file manager.</p>
+      </li>
+      <li>
+        <h3>If Google Play Protect warns you</h3>
+        <p>Tap <em>More details</em>, then <em>Install anyway</em>.</p>
+      </li>
+      <li>
+        <h3>Launch the game</h3>
+        <p>The first launch downloads game data. That's normal. Restore your account with Twitter (X) or your transfer password (not Google), then enjoy the game in English.</p>
+      </li>
+    </ol>
+  </section>
+
+  <section id="updating" aria-labelledby="h-updating">
+    <h2 id="h-updating">Updating</h2>
+    <p>When the game says it needs an update, <strong>do not update from the Play Store</strong>.</p>
+    <p>Come back here and download the newest build of the <strong>same version</strong> you installed (Lite or Full, Standard or Side-by-side). Install it <strong>over</strong> the existing app. Don't uninstall, and your data stays. New translations arrive the same way.</p>
+  </section>
+
+  <section id="faq" aria-labelledby="h-faq">
+    <h2 id="h-faq">FAQ</h2>
+
+    <details>
+      <summary>Can I get banned?</summary>
+      <p>It's possible. A modified client breaks the game's Terms of Service. No bans have been reported so far, but we can't promise anything. Use it at your own risk.</p>
+    </details>
+
+    <details>
+      <summary>Is my account safe? Will I lose progress?</summary>
+      <p>Your progress is safe if you link your account before switching. Use <strong>Twitter (X)</strong> or a <strong>transfer password</strong>. Unlinked guest accounts lose everything when you uninstall.</p>
+      <p><strong>Google and Apple linking don't work</strong> in the patched game. If you're only linked to Google, add a Twitter or password link first. Side-by-side builds don't touch your original app, but they have their own separate login.</p>
+    </details>
+
+    <details>
+      <summary>Can I use an emulator?</summary>
+      <p>Not yet. Emulators like BlueStacks, MuMu and LDPlayer aren't supported at the moment. Support is being worked on.</p>
+    </details>
+
+    <details>
+      <summary>Why does Android warn me?</summary>
+      <p>The app doesn't come from the Play Store, so Android and Google Play Protect show a warning. Tap <em>More details</em>, then <em>Install anyway</em>. You may also need to allow "Install unknown apps" for your browser or file manager.</p>
+    </details>
+
+    <details>
+      <summary>The game says it needs an update</summary>
+      <p>Don't use the Play Store. Come back to this page and download the newest build of the same version you have, then install it over the old one. Your data stays.</p>
+    </details>
+
+    <details>
+      <summary>Can I use this on iPhone?</summary>
+      <p>No. The patch only works on Android phones and tablets (Android 10 or newer, 64-bit).</p>
+    </details>
+  </section>
+
+</main>
+
+<footer>
+  <div class="wrap">
+    <p>This is a fan project. It is not affiliated with QualiArts, CyberAgent, or the IDOLY PRIDE rights holders.</p>
+    <p>Using a modified client may break the game's Terms of Service and could get your account banned. Use at your own risk.</p>
+    <p>Credits: HoshimiLocalify (Chinosk6, Vilebbit), CyleAR/ipr-patcher, and LSPatch.</p>
+    <p><a href="https://github.com/tokanada/ipr-patcher-en/releases/latest" rel="noopener">All files on GitHub</a></p>
+  </div>
+</footer>
+
+<nav class="helpbar" aria-label="Help improve the project">
+  <div class="helpbar-inner">
+    <span class="helpbar-text">Help make it better:</span>
+    <a class="btn helpbar-btn" href="https://forms.gle/TZDMAieKvuFLf5ru7" target="_blank" rel="noopener">Report a bug</a>
+    <a class="btn btn-outline helpbar-btn" href="https://hoshimistation.tokanada.com" target="_blank" rel="noopener">Improve translation</a>
+  </div>
+</nav>
+
+</body>
+</html>

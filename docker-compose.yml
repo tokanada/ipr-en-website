@@ -1,0 +1,20 @@
+services:
+  ipr-en-website:
+    build: .
+    image: ipr-en-website
+    container_name: ipr-en-website
+    restart: unless-stopped
+    expose:
+      - "80"
+    # For local testing without a reverse proxy, uncomment:
+    # ports:
+    #   - "8080:80"
+    networks:
+      - proxy
+
+networks:
+  proxy:
+    # Shared network with your outer Caddy. Change the name to match yours,
+    # or create it once with: docker network create proxy
+    external: true
+    name: proxy
